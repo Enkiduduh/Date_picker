@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "A custom date picker component",
   "main": "src/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "webpack --mode production",
     "prepare": "npm run build",
