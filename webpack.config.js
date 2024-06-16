@@ -4,10 +4,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'bundle.js',
     library: 'MyDatePickerPackage',
     libraryTarget: 'umd',
-    globalObject: 'this',
   },
   module: {
     rules: [
@@ -16,9 +15,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
         },
       },
       {
@@ -27,21 +23,12 @@ module.exports = {
       },
     ],
   },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-      root: 'React',
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-      root: 'ReactDOM',
-    },
-  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
+  mode: 'production',  // Ajoutez cette ligne pour définir le mode
 };
